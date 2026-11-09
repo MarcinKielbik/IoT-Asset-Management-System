@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# Angular / Node.js
+node_modules/
+dist/
+.angular/
+
+# Tests and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# macOS
+.DS_Store
