@@ -3,6 +3,8 @@ from sqlalchemy.orm import sessionmaker
 
 from app.core.config import settings
 
+from collections.abc import Generator
+from sqlalchemy.orm import Session
 
 engine = create_engine(
     settings.DATABASE_URL,
@@ -15,3 +17,11 @@ SessionLocal = sessionmaker(
     autocommit=False,
     expire_on_commit=False,
 )
+
+def get_db() -> Generator[Session, None, None]:
+    db = SessionLocal()
+
+    try:
+        yield db
+    finally:
+        db.close()
