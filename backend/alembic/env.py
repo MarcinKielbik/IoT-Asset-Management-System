@@ -8,7 +8,7 @@ from app.core.config import settings
 from app.db.base import Base
 
 from app.models.device import Device
-
+from app.models.telemetry import Telemetry
 
 # Alembic configuration
 config = context.config

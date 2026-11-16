@@ -1,14 +1,19 @@
-
 from datetime import datetime
-
 from sqlalchemy import DateTime, String, func
-from sqlalchemy.orm import Mapped, mapped_column
-
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base
+from typing import TYPE_CHECKING
 
+if TYPE_CHECKING:
+    from app.models.telemetry import Telemetry
 
 class Device(Base):
     __tablename__ = "devices"
+
+    telemetry: Mapped[list["Telemetry"]] = relationship(
+        back_populates="device",
+        cascade="all, delete-orphan"
+    )
 
     id: Mapped[int] = mapped_column(primary_key=True, index=True)
 
