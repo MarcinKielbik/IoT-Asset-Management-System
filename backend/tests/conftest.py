@@ -11,7 +11,7 @@ from app.main import app
 from app.db.base import Base
 from app.db.session import get_db
 from app.models.device import Device
-
+from app.models.telemetry import Telemetry
 
 TEST_DATABASE_URL = os.environ["TEST_DATABASE_URL"]
 
